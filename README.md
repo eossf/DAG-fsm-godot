@@ -85,12 +85,14 @@ The code calculates the layer count, it's the different layers count, if you hav
 
 ## Theory of DAG and FSM
 
+![](schema-DAG.png)
+
 Theory, default rules:
 
     parallel nodes   : node in the same layer. When going to this node it's NOT POSSIBLE to go to another node in the same layer
     serial nodes     
         when going to a node to another layer, it's a one way path, if you go back you follow the same path in the reverse way
-
+    
     history : for managing the node to node state an Array hold the history, the stack size is the number of layer
         history[].size = layer.count
 
@@ -99,10 +101,10 @@ For example:
 
     Player walk, jump and attack
     (idle -> walk -> jump -> attack)
-
+    
     Then release attack input
     (idle -> walk -> jump)
-
+    
     Then release jump
     (idle -> walk)
 
@@ -113,5 +115,4 @@ A node_name is the point where a decision path is expected, there are x cases:
 - nothing, it's the final state, there is no more actions possible (children is empty array)
 - actions available, children nodes array contains all possibilities
 - finished action, at each node by default when finishing (jump, attack, ...) the state returned to the node before (history), but, a default node is mandatory to manage the falling back. When going to idle, the history is cleaned
-
 
