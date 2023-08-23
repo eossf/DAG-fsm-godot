@@ -13,12 +13,29 @@ func back():
 	if b != null:
 		go(b)
 
-func go(node_name:String):
-	print(" >>>>>>>>>>>>>>>>>>> Go to "+node_name+" <<<<<<<<<<<<<<<<<<<")
-	var i = search_node(node_name)
+func go(node_name_wanted:String):
+	print(" >>>>>>>>>>>>>>>>>>> Want to Go to " + node_name_wanted + " <<<<<<<<<<<<<<<<<<<")
+	var i = search_node(node_name_wanted)
+	
+	# node wanted exists?
 	if i > -1:
-		if current[current.size()-1] != node_name:
-			current.push_back(node_name)
+		var j = search_node(current[current.size()-1])
+		var asked_node = root[i]
+		var current_node = root[j]
+		var node_name = current[current.size()-1]
+		
+		# ask the same node name is not possible
+		if node_name != node_name_wanted:
+			
+			# ask the same layer, switch from node layer to the asked one
+			if asked_node.layer == current_node.layer:
+				current[current.size()-1] = node_name_wanted
+				print("switch to " + node_name_wanted)
+
+			# add node_name_wanted
+			else:
+				current.push_back(node_name_wanted)
+				print("push " + node_name_wanted)
 
 func load_json():
 	if dag_file == null or dag_file == "":
