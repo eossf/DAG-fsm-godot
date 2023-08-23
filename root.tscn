@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvtw317g5mr70"]
+
+[ext_resource type="Script" path="res://root.gd" id="1_02534"]
+
+[node name="root" type="Node"]
+script = ExtResource("1_02534")
+
+[node name="Load" type="Button" parent="."]
+offset_left = 243.0
+offset_top = 87.0
+offset_right = 322.0
+offset_bottom = 118.0
+text = "LOAD DAG"
+
+[node name="Walk-10" type="Button" parent="."]
+offset_left = 341.0
+offset_top = 173.0
+offset_right = 394.0
+offset_bottom = 204.0
+text = "WALK"
+
+[node name="Run-10" type="Button" parent="."]
+offset_left = 412.0
+offset_top = 171.0
+offset_right = 455.0
+offset_bottom = 202.0
+text = "RUN"
+
+[node name="Jump-20" type="Button" parent="."]
+offset_left = 347.0
+offset_top = 227.0
+offset_right = 396.0
+offset_bottom = 258.0
+text = "Jump"
+
+[node name="Attack-30" type="Button" parent="."]
+offset_left = 341.0
+offset_top = 277.0
+offset_right = 399.0
+offset_bottom = 308.0
+text = "Attack"
+
+[node name="Inspect" type="Button" parent="."]
+offset_left = 162.0
+offset_top = 335.0
+offset_right = 227.0
+offset_bottom = 366.0
+text = "Inspect"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 251.0
+offset_top = 340.0
+offset_right = 322.0
+offset_bottom = 371.0
+text = "Go Back"
+
+[connection signal="pressed" from="Load" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Walk-10" to="." method="_on_walk_pressed"]
+[connection signal="pressed" from="Run-10" to="." method="_on_run_10_pressed"]
+[connection signal="pressed" from="Jump-20" to="." method="_on_jump_20_pressed"]
+[connection signal="pressed" from="Attack-30" to="." method="_on_attack_30_pressed"]
+[connection signal="pressed" from="Inspect" to="." method="_on_inspect_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
