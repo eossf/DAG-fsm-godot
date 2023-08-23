@@ -1,58 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvtw317g5mr70"]
+[gd_scene load_steps=5 format=3 uid="uid://bvtw317g5mr70"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_02534"]
+[ext_resource type="Texture2D" uid="uid://doaocctu8a2ww" path="res://Ship.png" id="2_8ag0n"]
+[ext_resource type="Script" path="res://player.gd" id="2_fgv5c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shsrq"]
+radius = 20.0998
 
 [node name="root" type="Node"]
 script = ExtResource("1_02534")
 
 [node name="Load" type="Button" parent="."]
-offset_left = 243.0
-offset_top = 87.0
-offset_right = 322.0
-offset_bottom = 118.0
+offset_left = 60.0
+offset_top = 21.0
+offset_right = 210.0
+offset_bottom = 55.0
 text = "LOAD DAG"
 
 [node name="Walk-10" type="Button" parent="."]
-offset_left = 341.0
-offset_top = 173.0
-offset_right = 394.0
-offset_bottom = 204.0
+offset_left = 63.0
+offset_top = 62.0
+offset_right = 116.0
+offset_bottom = 93.0
 text = "WALK"
 
 [node name="Run-10" type="Button" parent="."]
-offset_left = 412.0
-offset_top = 171.0
-offset_right = 455.0
-offset_bottom = 202.0
+offset_left = 128.0
+offset_top = 63.0
+offset_right = 171.0
+offset_bottom = 94.0
 text = "RUN"
 
 [node name="Jump-20" type="Button" parent="."]
-offset_left = 347.0
-offset_top = 227.0
-offset_right = 396.0
-offset_bottom = 258.0
+offset_left = 63.0
+offset_top = 101.0
+offset_right = 125.0
+offset_bottom = 139.0
 text = "Jump"
 
 [node name="Attack-30" type="Button" parent="."]
-offset_left = 341.0
-offset_top = 277.0
-offset_right = 399.0
-offset_bottom = 308.0
+offset_left = 64.0
+offset_top = 146.0
+offset_right = 122.0
+offset_bottom = 177.0
 text = "Attack"
 
 [node name="Inspect" type="Button" parent="."]
-offset_left = 162.0
-offset_top = 335.0
-offset_right = 227.0
-offset_bottom = 366.0
+offset_left = 221.0
+offset_top = 23.0
+offset_right = 381.0
+offset_bottom = 54.0
 text = "Inspect"
 
 [node name="Back" type="Button" parent="."]
-offset_left = 251.0
-offset_top = 340.0
-offset_right = 322.0
-offset_bottom = 371.0
+offset_left = 122.0
+offset_top = 190.0
+offset_right = 193.0
+offset_bottom = 221.0
 text = "Go Back"
+
+[node name="Direction" type="Button" parent="."]
+offset_left = 203.0
+offset_top = 190.0
+offset_right = 288.0
+offset_bottom = 221.0
+text = "Left/Right"
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(291, 376)
+script = ExtResource("2_fgv5c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(7, -1)
+scale = Vector2(3, 3)
+texture = ExtResource("2_8ag0n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_shsrq")
 
 [connection signal="pressed" from="Load" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Walk-10" to="." method="_on_walk_pressed"]

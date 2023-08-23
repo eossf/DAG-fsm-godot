@@ -7,7 +7,8 @@
 	  ],
 	  "layer": 10,
 	  "name": "walk",
-	  "parent": "idle"
+	  "parent": "idle",
+	  "direction": "right",
 	},
 	{
 	  "children": [
@@ -16,13 +17,15 @@
 	  ],
 	  "layer": 10,
 	  "name": "run",
-	  "parent": "idle"
+	  "parent": "idle",
+	  "direction": "right",
 	},
 	{
 	  "children": [],
 	  "layer": 30,
 	  "name": "attack",
-	  "parent": "idle"
+	  "parent": "idle",
+	  "direction": "right",
 	},
 	{
 	  "children": [
@@ -33,7 +36,8 @@
 	  ],
 	  "layer": 0,
 	  "name": "idle",
-	  "parent": ""
+	  "parent": "",
+	  "direction": "right",
 	},
 	{
 	  "children": [
@@ -41,7 +45,8 @@
 	  ],
 	  "layer": 20,
 	  "name": "jump",
-	  "parent": "idle"
+	  "parent": "idle",
+	  "direction": "right",
 	},
   ]
 }
