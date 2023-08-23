@@ -1,4 +1,4 @@
-@icon("res://DAG.png")
+@icon("res://DAG_128x128.png")
 class_name DAG extends Object
 
 # warning-ignore:unused_signal
