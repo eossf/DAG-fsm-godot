@@ -1,24 +1,33 @@
 @icon("res://DAG.png")
-class_name DAG extends Node
+class_name DAG extends Object
 
 # warning-ignore:unused_signal
 signal finished(next_state_name)
 
-var json_dict = {}
-var root_arr = []
+var json:
+	get = getJson, set = setJson
 
-func get_json_dict():
-	return json_dict
+var root:
+	get = getRoot, set = setRoot
 
-func get_root_arr():
-	root_arr = json_dict.root
-	root_arr.sort_custom(_sort_layer)
-	return root_arr
+func setJson(j:Dictionary):
+	json = j
+
+func getJson():
+	return json
+
+func setRoot(a:Array):
+	root = a
+
+func getRoot():
+	root = json.root
+	root.sort_custom(_sort_layer)
+	return root
 
 func _init(filePath: String):
-	json_dict = load_json(filePath)
+	json = _load_json(filePath)
 
-func load_json(filePath: String):
+func _load_json(filePath: String):
 	if FileAccess.file_exists(filePath):
 		var dataFile = FileAccess.open(filePath, FileAccess.READ)
 		var parsedData = JSON.parse_string(dataFile.get_as_text())
