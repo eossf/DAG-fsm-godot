@@ -4,13 +4,13 @@ extends Object
 @export var dag_file : String = "res://dag_test.json"
 
 var root:Array = []
-var current:Array = []
+var current_node:Array = []
 
 func _back():
-	if current.size() > 1:
-		current.pop_back()
+	if current_node.size() > 1:
+		current_node.pop_back()
 	
-	_go(current[current.size()-1])
+	_go(current_node[current_node.size()-1].name)
 
 func _go(node_name_wanted:String):
 	print(" >>>>>>>>>>>>>>>>>>> Want to Go to " + node_name_wanted + " <<<<<<<<<<<<<<<<<<<")
@@ -18,23 +18,27 @@ func _go(node_name_wanted:String):
 	
 	# node wanted exists?
 	if i > -1:
-		var node_name = current[current.size()-1]
+		var node_name = current_node[current_node.size()-1].name
 		var j = _search_node(node_name)
-		var asked_node = root[i]
-		var current_node = root[j]
+		var node_wanted = root[i]
+		var node_ongoing = root[j]
 	
 		# ask the same node name is not possible
 		if node_name != node_name_wanted:
 			
 			# ask the same layer, switch from node layer to the asked one
-			if asked_node.layer == current_node.layer:
-				current[current.size()-1] = node_name_wanted
+			if node_wanted.layer == node_ongoing.layer:
+				current_node[current_node.size()-1] = node_wanted
 				print("switch to " + node_name_wanted)
-
-			# add node_name_wanted
 			else:
-				current.push_back(node_name_wanted)
-				print("push " + node_name_wanted)
+				# impossible to push for this case
+				if node_wanted.layer < node_ongoing.layer:
+					print("impossible for layer under current ")
+				
+				# add node_name_wanted
+				else:
+					current_node.push_back(node_wanted)
+					print("push " + node_name_wanted)
 
 func _load_json():
 	if dag_file == null or dag_file == "":
@@ -44,7 +48,7 @@ func _load_json():
 
 func _init_dag():
 	# get first node from DAG
-	current.push_back(root[0].name)
+	current_node.push_back(root[0])
 
 func _inspect():
 	print("INSPECTION OF ROOT name, layer, parent, children")
@@ -52,7 +56,7 @@ func _inspect():
 		print(d.name + " " + str(d.layer) + " " + str(d.children))
 	print("")
 	print("INSPECTION OF CURRENT ")
-	print(current)
+	print(current_node)
 
 func _search_node(searched_node_name:String):
 	var i = 0
