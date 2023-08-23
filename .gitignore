@@ -1,2 +1,17 @@
 # Godot 4+ specific ignores
 .godot/
+*.import
+
+# files & folders in general
+.cache*
+.env*
+.devcontainer*
+
+# files type
+*.log
+*.crt
+*.key
+*.csr
+*.bak
+*.pem
+*.tmp
