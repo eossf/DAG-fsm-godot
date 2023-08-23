@@ -85,7 +85,7 @@ The code calculates the layer count, it's the different layers count, if you hav
 
 ## Theory of DAG and FSM
 
-![](schema-DAG.png)
+![](schema-dag.png)
 
 Theory, default rules:
 
