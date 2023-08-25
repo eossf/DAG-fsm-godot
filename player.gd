@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var player = %Sprite2D
 @export_range(0.0, 0.1) var acceleration_factor : float = 0.1
 var speed:float = 0.0
 var max_speed:float = 800.0

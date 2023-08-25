@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DAG"
-run/main_scene="res://root.tscn"
+run/main_scene="res://Root.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/bg_color=Color(0.909804, 0.913725, 0.905882, 1)
 boot_splash/image="res://DAG_128x128.png"

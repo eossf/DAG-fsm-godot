@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvtw317g5mr70"]
 
-[ext_resource type="Script" path="res://root.gd" id="1_02534"]
-[ext_resource type="Texture2D" uid="uid://doaocctu8a2ww" path="res://Ship.png" id="2_8ag0n"]
-[ext_resource type="Script" path="res://player.gd" id="2_fgv5c"]
+[ext_resource type="Script" path="res://root.gd" id="1_lydxx"]
+[ext_resource type="Script" path="res://player.gd" id="2_14gtv"]
+[ext_resource type="Texture2D" uid="uid://doaocctu8a2ww" path="res://Ship.png" id="3_yk564"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_shsrq"]
-radius = 20.0998
+[sub_resource type="CircleShape2D" id="CircleShape2D_2crax"]
+radius = 12.0
 
 [node name="root" type="Node"]
-script = ExtResource("1_02534")
+script = ExtResource("1_lydxx")
 
 [node name="Load" type="Button" parent="."]
 offset_left = 60.0
@@ -67,18 +67,16 @@ offset_bottom = 221.0
 text = "Left/Right"
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(291, 376)
-script = ExtResource("2_fgv5c")
+position = Vector2(168, 409)
+script = ExtResource("2_14gtv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-unique_name_in_owner = true
-position = Vector2(7, -1)
 scale = Vector2(3, 3)
-texture = ExtResource("2_8ag0n")
+texture = ExtResource("3_yk564")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_shsrq")
+position = Vector2(-8, 0)
+shape = SubResource("CircleShape2D_2crax")
 
 [connection signal="pressed" from="Load" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Walk-10" to="." method="_on_walk_pressed"]
