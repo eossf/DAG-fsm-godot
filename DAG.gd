@@ -10,6 +10,15 @@ var json:
 var root:
 	get = getRoot, set = setRoot
 
+var direction:
+	get = getDirection, set = setDirection
+
+func getDirection():
+	return direction
+
+func setDirection(d:String):
+	direction = d
+
 func setJson(j:Dictionary):
 	json = j
 
@@ -19,8 +28,9 @@ func getJson():
 func setRoot(a:Array):
 	root = a
 
+# get root mandatory states
 func getRoot():
-	root = json.root
+	root = json.root.states
 	root.sort_custom(_sort_layer)
 	return root
 

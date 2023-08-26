@@ -1,52 +1,50 @@
 {
-  "root": [
-	{
-	  "children": [
-		"jump",
-		"attack"
-	  ],
-	  "layer": 10,
-	  "name": "walk",
-	  "parent": "idle",
-	  "direction": "right",
-	},
-	{
-	  "children": [
-		"jump",
-		"attack"
-	  ],
-	  "layer": 10,
-	  "name": "run",
-	  "parent": "idle",
-	  "direction": "right",
-	},
-	{
-	  "children": [],
-	  "layer": 30,
-	  "name": "attack",
-	  "parent": "idle",
-	  "direction": "right",
-	},
-	{
-	  "children": [
-		"walk",
-		"run",
-		"jump",
-		"attack"
-	  ],
-	  "layer": 0,
-	  "name": "idle",
-	  "parent": "",
-	  "direction": "right",
-	},
-	{
-	  "children": [
-		"attack"
-	  ],
-	  "layer": 20,
-	  "name": "jump",
-	  "parent": "idle",
-	  "direction": "right",
-	},
-  ]
+	"root": {
+		"direction": "right",
+		"states": [
+			{
+				"children": [
+					"jump",
+					"attack"
+				],
+				"layer": 10,
+				"name": "walk",
+				"parent": "idle"
+			},
+			{
+				"children": [
+					"jump",
+					"attack"
+				],
+				"layer": 10,
+				"name": "run",
+				"parent": "idle"
+			},
+			{
+				"children": [],
+				"layer": 30,
+				"name": "attack",
+				"parent": "idle"
+			},
+			{
+				"children": [
+					"walk",
+					"run",
+					"jump",
+					"attack"
+				],
+				"layer": 0,
+				"name": "idle",
+				"parent": ""
+			},
+			{
+				"children": [
+					"attack"
+				],
+				"layer": 20,
+				"name": "jump",
+				"parent": "idle"
+			}
+		]
+	}
 }
